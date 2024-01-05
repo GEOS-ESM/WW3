@@ -147,7 +147,10 @@
       use W3GDATMD
       use W3IDATMD
       use W3ODATMD
-      use W3WDATMD
+      ! We rename the derived type GRID from W3GDATMD to W3GRID to avoid
+      ! a name clash with an ESMF_Grid called "grid" declared below.
+      ! This was detected by GNU
+      use W3WDATMD, W3GRID => GRID
       use W3ADATMD
       use W3TIMEMD
       use WMUPDTMD, only: WMUPD2
