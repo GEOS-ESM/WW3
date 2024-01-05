@@ -53,11 +53,11 @@
 !/
 !/    20-Jan-2017 : Origination.                        ( version 6.02 )
 !/    09-Aug-2017 : Add ocean forcing export fields     ( version 6.03 )
-!/    28-Feb-2018 : Modifications for unstruc meshes    ( version 6.06 ) 
+!/    28-Feb-2018 : Modifications for unstruc meshes    ( version 6.06 )
 !/
 !/    Copyright 2009-2014 National Weather Service (NWS),
 !/       National Oceanic and Atmospheric Administration.  All rights
-!/       reserved.  WAVEWATCH III is a trademark of the NWS. 
+!/       reserved.  WAVEWATCH III is a trademark of the NWS.
 !/       No unauthorized use without permission.
 !/
 !  1. Purpose :
@@ -349,7 +349,7 @@
       VERIFY_(status)
 
       Iam = trim(COMP_NAME) // Iam
- 
+
 !
 ! -------------------------------------------------------------------- /
 !     Set model entry points
@@ -384,8 +384,8 @@
           UNITS          = 'm s-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,                     &
-          RESTART        = MAPL_RestartSkip,        __RC__) 
-  
+          RESTART        = MAPL_RestartSkip,        __RC__)
+
       call MAPL_AddImportSpec(GC,                                  &
           SHORT_NAME     = 'V10M',                                 &
           LONG_NAME      = '10-meter_northward_wind',              &
@@ -400,8 +400,8 @@
           UNITS          = 'm s-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,                     &
-          RESTART        = MAPL_RestartSkip,        __RC__) 
-  
+          RESTART        = MAPL_RestartSkip,        __RC__)
+
       call MAPL_AddImportSpec(GC,                                  &
           SHORT_NAME     = 'V10N',                                 &
           LONG_NAME      = 'equivalent_neutral_10-meter_northward_wind', &
@@ -419,7 +419,7 @@
           RESTART        = MAPL_RestartSkip,        __RC__)
 
 !  OGCM -> WM
-  
+
       call MAPL_AddImportSpec(GC,                                  &
           SHORT_NAME     = 'UW',                                   &
           LONG_NAME      = 'zonal_velocity_of_surface_water',      &
@@ -446,8 +446,8 @@
           LONG_NAME      = '10-meter_eastward_wind',               &
           UNITS          = 'm s-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
-          VLOCATION      = MAPL_VLocationNone,      __RC__) 
-  
+          VLOCATION      = MAPL_VLocationNone,      __RC__)
+
       call MAPL_AddExportSpec(GC,                                  &
           SHORT_NAME     = 'V10M',                                 &
           LONG_NAME      = '10-meter_northward_wind',              &
@@ -460,8 +460,8 @@
           LONG_NAME      = 'equivalent_neutral_10-meter_eastward_wind', &
           UNITS          = 'm s-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
-          VLOCATION      = MAPL_VLocationNone,      __RC__) 
-  
+          VLOCATION      = MAPL_VLocationNone,      __RC__)
+
       call MAPL_AddExportSpec(GC,                                  &
           SHORT_NAME     = 'V10N',                                 &
           LONG_NAME      = 'equivalent_neutral_10-meter_northward_wind', &
@@ -594,35 +594,35 @@
 !         UNITS          = 'm',                                    &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
 !         VLOCATION      = MAPL_VLocationNone,     __RC__)
-    
+
 !     call MAPL_AddExportSpec(GC,                                  &
 !         SHORT_NAME     = 'SWHS',                                 &
 !         LONG_NAME      = 'sea_surface_swell_significant_height', &
 !         UNITS          = 'm',                                    &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
 !         VLOCATION      = MAPL_VLocationNone,     __RC__)
-    
+
       call MAPL_AddExportSpec(GC,                                  &
           SHORT_NAME     = 'MWP',                                  &
           LONG_NAME      = 'mean_wave_period',                     &
           UNITS          = 's',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     __RC__)
-    
+
       call MAPL_AddExportSpec(GC,                                  &
           SHORT_NAME     = 'MWD',                                  &
           LONG_NAME      = 'mean_wave_direction',                  &
           UNITS          = 'rad',                                  &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     __RC__)
-    
+
       call MAPL_AddExportSpec(GC,                                  &
           SHORT_NAME     = 'MSS',                                  &
           LONG_NAME      = 'mean_squared_slope',                   &
           UNITS          = 'rad',                                  &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     __RC__)
-    
+
       call MAPL_AddExportSpec(GC,                                  &
           SHORT_NAME     = 'MWL',                                  &
           LONG_NAME      = 'mean_wave_length',                     &
@@ -636,14 +636,14 @@
           UNITS          = 'rad',                                  &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     __RC__)
-    
+
       call MAPL_AddExportSpec(GC,                                  &
           SHORT_NAME     = 'DWL',                                  &
           LONG_NAME      = 'dominant_wave_length',                 &
           UNITS          = 'm',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     __RC__)
-    
+
       call MAPL_AddExportSpec(GC,                                  &
           SHORT_NAME     = 'DWP',                                  &
           LONG_NAME      = 'dominant_wave_period',                 &
@@ -657,7 +657,7 @@
           UNITS          = 's-1',                                  &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     __RC__)
- 
+
       call MAPL_AddExportSpec(GC,                                  &
           SHORT_NAME     = 'TWS',                                  &
           LONG_NAME      = 'Wind_sea_mean_period_T0M1',            &
@@ -671,21 +671,21 @@
           UNITS          = 'm s-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     __RC__)
-    
+
       call MAPL_AddExportSpec(GC,                                  &
           SHORT_NAME     = 'DCG0',                                 &
           LONG_NAME      = 'dominant_group_speed_intrinsic',       &
           UNITS          = 'm s-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     __RC__)
-    
+
       call MAPL_AddExportSpec(GC,                                  &
           SHORT_NAME     = 'DCP',                                  &
           LONG_NAME      = 'dominant_phase_speed',                 &
           UNITS          = 'm s-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     __RC__)
-    
+
       call MAPL_AddExportSpec(GC,                                  &
           SHORT_NAME     = 'DCG',                                  &
           LONG_NAME      = 'dominant_group_speed',                 &
@@ -797,7 +797,7 @@
           LONG_NAME      = 'surface_roughness',                    &
           UNITS          = 'm',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
-          VLOCATION      = MAPL_VLocationNone,     __RC__) 
+          VLOCATION      = MAPL_VLocationNone,     __RC__)
 
 !     call MAPL_AddExportSpec(GC,                                  &
 !         SHORT_NAME     = 'CD',                                   &
@@ -805,76 +805,76 @@
 !         UNITS          = '1',                                    &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
 !         VLOCATION      = MAPL_VLocationNone,     __RC__)
-    
+
       call MAPL_AddExportSpec(GC,                                  &
           SHORT_NAME     = 'CHARNOCK',                             &
           LONG_NAME      = 'wave_model_charnock_coefficient',      &
           UNITS          = '1',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
-          VLOCATION      = MAPL_VLocationNone,     __RC__) 
-    
+          VLOCATION      = MAPL_VLocationNone,     __RC__)
+
 !     call MAPL_AddExportSpec(GC,                                  &
 !         SHORT_NAME     = 'TAU',                                  &
 !         LONG_NAME      = 'total drag',                           &
 !         UNITS          = 'N m-2',                                &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
-!         VLOCATION      = MAPL_VLocationNone,     __RC__) 
-    
+!         VLOCATION      = MAPL_VLocationNone,     __RC__)
+
 !     call MAPL_AddExportSpec(GC,                                  &
 !         SHORT_NAME     = 'TAUX',                                 &
 !         LONG_NAME      = 'total drag, x-component',              &
 !         UNITS          = 'N m-2',                                &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
-!         VLOCATION      = MAPL_VLocationNone,     __RC__) 
-    
+!         VLOCATION      = MAPL_VLocationNone,     __RC__)
+
 !     call MAPL_AddExportSpec(GC,                                  &
 !         SHORT_NAME     = 'TAUY',                                 &
 !         LONG_NAME      = 'total drag, y-component',              &
 !         UNITS          = 'N m-2',                                &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
-!         VLOCATION      = MAPL_VLocationNone,     __RC__) 
-      
+!         VLOCATION      = MAPL_VLocationNone,     __RC__)
+
 !     call MAPL_AddExportSpec(GC,                                  &
 !         SHORT_NAME     = 'TAU_FORM',                             &
 !         LONG_NAME      = 'form drag',                            &
 !         UNITS          = 'N m-2',                                &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
-!         VLOCATION      = MAPL_VLocationNone,     __RC__) 
-    
+!         VLOCATION      = MAPL_VLocationNone,     __RC__)
+
 !     call MAPL_AddExportSpec(GC,                                  &
 !         SHORT_NAME     = 'TAUX_FORM',                            &
 !         LONG_NAME      = 'form drag, x-component',               &
 !         UNITS          = 'N m-2',                                &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
-!         VLOCATION      = MAPL_VLocationNone,     __RC__) 
-    
+!         VLOCATION      = MAPL_VLocationNone,     __RC__)
+
 !     call MAPL_AddExportSpec(GC,                                  &
 !         SHORT_NAME     = 'TAUY_FORM',                            &
 !         LONG_NAME      = 'form drag, y-component',               &
 !         UNITS          = 'N m-2',                                &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
-!         VLOCATION      = MAPL_VLocationNone,     __RC__) 
-    
+!         VLOCATION      = MAPL_VLocationNone,     __RC__)
+
 !     call MAPL_AddExportSpec(GC,                                  &
 !         SHORT_NAME     = 'TAU_SKIN',                             &
 !         LONG_NAME      = 'skin drag',                            &
 !         UNITS          = 'N m-2',                                &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
-!         VLOCATION      = MAPL_VLocationNone,     __RC__) 
-    
+!         VLOCATION      = MAPL_VLocationNone,     __RC__)
+
 !     call MAPL_AddExportSpec(GC,                                  &
 !         SHORT_NAME     = 'TAUX_SKIN',                            &
 !         LONG_NAME      = 'skin drag, x-component',               &
 !         UNITS          = 'N m-2',                                &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
-!         VLOCATION      = MAPL_VLocationNone,     __RC__) 
-    
+!         VLOCATION      = MAPL_VLocationNone,     __RC__)
+
 !     call MAPL_AddExportSpec(GC,                                  &
 !         SHORT_NAME     = 'TAUY_SKIN',                            &
 !         LONG_NAME      = 'skin drag, y-component',               &
 !         UNITS          = 'N m-2',                                &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
-!         VLOCATION      = MAPL_VLocationNone,     __RC__) 
+!         VLOCATION      = MAPL_VLocationNone,     __RC__)
 
 
 
@@ -898,7 +898,7 @@
          UNITS          = 's',                                     &
          DIMS           = MAPL_DimsHorzOnly,                       &
          VLOCATION      = MAPL_VLocationNone,     __RC__)
-  
+
      call MAPL_AddExportSpec(GC,                                   &
          SHORT_NAME     = 'WBT',                                   &
          LONG_NAME      = 'dominant_wave_breaking_probability',    &
@@ -1192,7 +1192,7 @@
 ! 2.  Initialization of all wave models / grids
 !
 ! 2.a Call into WMINIT
-!     
+!
       call ESMF_GridCompGet(gc, configIsPresent=configIsPresent, __RC__)
       if (configIsPresent) then
          call ESMF_GridCompGet(gc, config=config, __RC__)
@@ -1279,7 +1279,7 @@
 !/
 !/    20-Jan-2017 : Origination.                        ( version 6.02 )
 !/    09-Aug-2017 : Update 3D export field setup        ( version 6.03 )
-!/    28-Feb-2018 : Modifications for unstruc meshes    ( version 6.06 )  
+!/    28-Feb-2018 : Modifications for unstruc meshes    ( version 6.06 )
 !/
 !  1. Purpose :
 !
@@ -1738,7 +1738,7 @@
 !/ ------------------------------------------------------------------- /
 ! !ARGUMENTS:
 
-        type(ESMF_GridComp), intent(inout) :: GC     ! Gridded component 
+        type(ESMF_GridComp), intent(inout) :: GC     ! Gridded component
         type(ESMF_State),    intent(inout) :: IMPORT ! Import state
         type(ESMF_State),    intent(inout) :: EXPORT ! Export state
         type(ESMF_Clock),    intent(inout) :: CLOCK  ! The clock
@@ -1782,7 +1782,7 @@
         call ESMF_ClockPrint(clock, options="stopTime", &
           preString="-----------------> to: ")
      endif
-#endif     
+#endif
 !
 ! 1.c Check internal current time with component current time
 !
@@ -1999,7 +1999,7 @@
       call FieldGather( field, nx, ny, wyn, rc=rc )
 !      wxn = uwind
 !      wyn = vwind
-      
+
       if (firstCall) then
          tw0 = twn
          wx0 = wxn
@@ -2117,7 +2117,7 @@
 !/ ------------------------------------------------------------------- /
 !/ Parameter list
 !/
-        type(ESMF_GridComp), intent(inout) :: GC     ! Gridded component 
+        type(ESMF_GridComp), intent(inout) :: GC     ! Gridded component
         type(ESMF_State),    intent(inout) :: EXPORT ! Export state
         integer, optional,   intent(  out) :: RC     ! Error code
 !/
@@ -2130,7 +2130,7 @@
       integer :: i1, in, j1, jn
       real, pointer :: var(:,:) => null()
       real, allocatable :: svar(:)
-      type(ESMF_Grid) :: grid
+      type(ESMF_Grid) :: mygrid
       type(ESMF_VM) :: vm
       logical :: amIRoot
       integer :: comm
@@ -2158,8 +2158,8 @@
 
       call w3outg( va, flpart, floutg, floutg2 )
 
-      call ESMF_GridCompGet(gc, grid=grid, __RC__)
-      call MAPL_Grid_Interior(grid, i1, in, j1, jn)
+      call ESMF_GridCompGet(gc, grid=mygrid, __RC__)
+      call MAPL_Grid_Interior(mygrid, i1, in, j1, jn)
 
 ! gather info for sea-points only to regular grid transforms
 !-----------------------------------------------------------
@@ -2188,7 +2188,7 @@
       end if
 !
 ! -------------------------------------------------------------------- /
-! Surface Roughness 
+! Surface Roughness
 !
       call MAPL_GetPointer(export, var, 'Z0', __RC__)
       if (associated(var)) then
@@ -2203,7 +2203,7 @@
 !
       call MAPL_GetPointer(export, var, 'USTAR', alloc=.true., __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          call global2local(UST(1:NSEA),svar)
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2212,14 +2212,14 @@
 
       call MAPL_GetPointer(export, var, 'UUST', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          call global2local(UST(1:NSEA),svar)
-         allocate(dir(nseal), __STAT__) 
+         allocate(dir(nseal), __STAT__)
          call global2local(USTDIR(1:NSEA),dir)
          do jsea = 1,nseal
             if (svar(jsea) == UNDEF) then
                svar(jsea) = MAPL_Undef
-            else 
+            else
                svar(jsea) = svar(jsea) * cos(dir(jsea))
             end if
          end do
@@ -2230,14 +2230,14 @@
 
       call MAPL_GetPointer(export, var, 'VUST', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          call global2local(UST(1:NSEA),svar)
-         allocate(dir(nseal), __STAT__) 
+         allocate(dir(nseal), __STAT__)
          call global2local(USTDIR(1:NSEA),dir)
          do jsea = 1,nseal
             if (svar(jsea) == UNDEF) then
                svar(jsea) = MAPL_Undef
-            else 
+            else
                svar(jsea) = svar(jsea) * sin(dir(jsea))
             end if
          end do
@@ -2251,7 +2251,7 @@
 !
       call MAPL_GetPointer(export, var, 'SWH', alloc=.true., __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = HS
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2263,7 +2263,7 @@
 !
       call MAPL_GetPointer(export, var, 'HIG', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = HSIG
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2275,7 +2275,7 @@
 !
       call MAPL_GetPointer(export, var, 'HMAXE', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = HMAXE
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2284,7 +2284,7 @@
 
       call MAPL_GetPointer(export, var, 'HCMAXE', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = HCMAXE
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2293,7 +2293,7 @@
 
       call MAPL_GetPointer(export, var, 'HMAXD', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = HMAXD
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2302,7 +2302,7 @@
 
       call MAPL_GetPointer(export, var, 'HCMAXD', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = HCMAXD
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2314,7 +2314,7 @@
 !
       call MAPL_GetPointer(export, var, 'DW', __RC__)
       if (associated(var)) then
-         allocate(svar(nsea), __STAT__) 
+         allocate(svar(nsea), __STAT__)
          svar = DW(1:NSEA)
          where(svar == UNDEF) svar = MAPL_Undef
          call gsea2grid(svar, var, __RC__)
@@ -2326,7 +2326,7 @@
 !
       call MAPL_GetPointer(export, var, 'FRACI', __RC__)
       if (associated(var)) then
-         allocate(svar(nsea), __STAT__) 
+         allocate(svar(nsea), __STAT__)
          svar = ICE(1:NSEA)
          where(svar == UNDEF) svar = MAPL_Undef
          call gsea2grid(svar, var, __RC__)
@@ -2338,7 +2338,7 @@
 !
       call MAPL_GetPointer(export, var, 'W10M', __RC__)
       if (associated(var)) then
-         allocate(svar(nsea), __STAT__) 
+         allocate(svar(nsea), __STAT__)
          svar = UA(1:NSEA)
          where(svar == UNDEF) svar = MAPL_Undef
          call gsea2grid(svar, var, __RC__)
@@ -2347,7 +2347,7 @@
 
       call MAPL_GetPointer(export, var, 'U10M', __RC__)
       if (associated(var)) then
-         allocate(svar(nsea), __STAT__) 
+         allocate(svar(nsea), __STAT__)
          svar = UA(1:NSEA) * cos(UD(1:NSEA))
          where(UA(1:NSEA) == UNDEF) svar = MAPL_Undef
          call gsea2grid(svar, var, __RC__)
@@ -2368,7 +2368,7 @@
 !
       call MAPL_GetPointer(export, var, 'UW', __RC__)
       if (associated(var)) then
-         allocate(svar(nsea), __STAT__) 
+         allocate(svar(nsea), __STAT__)
          svar = CX(1:NSEA)
          where(svar == UNDEF) svar = MAPL_Undef
          call gsea2grid(svar, var, __RC__)
@@ -2377,7 +2377,7 @@
 
       call MAPL_GetPointer(export, var, 'VW', __RC__)
       if (associated(var)) then
-         allocate(svar(nsea), __STAT__) 
+         allocate(svar(nsea), __STAT__)
          svar = CY(1:NSEA)
          where(svar == UNDEF) svar = MAPL_Undef
          call gsea2grid(svar, var, __RC__)
@@ -2389,7 +2389,7 @@
 !
       call MAPL_GetPointer(export, var, 'MWL', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = WLM
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2401,7 +2401,7 @@
 !
       call MAPL_GetPointer(export, var, 'MWP', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = T02
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2410,7 +2410,7 @@
 
       call MAPL_GetPointer(export, var, 'T02', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = T02
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2419,7 +2419,7 @@
 
       call MAPL_GetPointer(export, var, 'T0M1', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = T0M1
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2428,7 +2428,7 @@
 
       call MAPL_GetPointer(export, var, 'T01', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = T01
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2440,7 +2440,7 @@
 !
       call MAPL_GetPointer(export, var, 'FP', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = FP0
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2454,11 +2454,11 @@
       if (associated(var)) then
          allocate(svar(nseal), __STAT__)
          svar = FP0
-         where(svar == UNDEF) 
+         where(svar == UNDEF)
              svar = MAPL_Undef
          elsewhere
              svar = 1.0 / svar
-         end where    
+         end where
          call sea2grid(svar, var, __RC__)
          deallocate(svar)
       end if
@@ -2482,13 +2482,13 @@
       if (associated(var)) then
          allocate(svar(nseal), __STAT__)
          svar = FP0
-         where(svar == UNDEF) 
+         where(svar == UNDEF)
              svar = MAPL_Undef
          elsewhere
-             ! see Eq. 7 in 'Wind Speed Scaling in Fully Developed Seas', PHOC, 1999 
+             ! see Eq. 7 in 'Wind Speed Scaling in Fully Developed Seas', PHOC, 1999
              ! phase speed based on the deep water linear dispersion
              svar = (GRAV / TPI) / svar
-         end where    
+         end where
          call sea2grid(svar, var, __RC__)
          deallocate(svar)
       end if
@@ -2503,10 +2503,10 @@
          where(svar == UNDEF)
              svar = MAPL_Undef
          elsewhere
-             ! see Eq. 7 in 'Wind Speed Scaling in Fully Developed Seas', PHOC, 1999 
+             ! see Eq. 7 in 'Wind Speed Scaling in Fully Developed Seas', PHOC, 1999
              ! phase speed based on the deep water linear dispersion
              svar = (GRAV / TPI) / svar
-         end where    
+         end where
          call sea2grid(svar, var, __RC__)
          deallocate(svar)
       end if
@@ -2540,7 +2540,7 @@
 !
       call MAPL_GetPointer(export, var, 'WBT', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = WBT
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2552,7 +2552,7 @@
 !
       call MAPL_GetPointer(export, var, 'CGE', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = CGE
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2564,7 +2564,7 @@
 !
       call MAPL_GetPointer(export, var, 'FAW', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = PHIAW
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2576,16 +2576,16 @@
 !
       call MAPL_GetPointer(export, var, 'UTAW', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = TAUWIX
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
          deallocate(svar)
       end if
- 
+
       call MAPL_GetPointer(export, var, 'VTAW', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = TAUWIY
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2597,16 +2597,16 @@
 !
       call MAPL_GetPointer(export, var, 'UTWA', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = TAUWNX
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
          deallocate(svar)
       end if
- 
+
       call MAPL_GetPointer(export, var, 'VTWA', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = TAUWNY
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2618,16 +2618,16 @@
 !
       call MAPL_GetPointer(export, var, 'UTWO', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = TAUOX
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
          deallocate(svar)
       end if
- 
+
       call MAPL_GetPointer(export, var, 'VTWO', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = TAUOY
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2635,11 +2635,11 @@
       end if
 !
 ! -------------------------------------------------------------------- /
-! Wave to ocean energy flux 
+! Wave to ocean energy flux
 !
       call MAPL_GetPointer(export, var, 'FOC', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = PHIOC
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2647,11 +2647,11 @@
       end if
 !
 ! -------------------------------------------------------------------- /
-! Wave energy dissipation flux: for symmetry with UMWM, EDF = FOC 
+! Wave energy dissipation flux: for symmetry with UMWM, EDF = FOC
 !
       call MAPL_GetPointer(export, var, 'EDF', alloc=.true., __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = PHIOC
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2665,7 +2665,7 @@
 !
       call MAPL_GetPointer(export, var, 'WCC', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = WHITECAP(:,1)
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2674,7 +2674,7 @@
 
       call MAPL_GetPointer(export, var, 'WCF', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = WHITECAP(:,2)
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2683,7 +2683,7 @@
 
       call MAPL_GetPointer(export, var, 'WCH', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = WHITECAP(:,3)
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2692,7 +2692,7 @@
 
       call MAPL_GetPointer(export, var, 'WCM', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = WHITECAP(:,4)
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2700,20 +2700,20 @@
       end if
 !
 ! -------------------------------------------------------------------- /
-! Mean Square Slope 
+! Mean Square Slope
 !
       call MAPL_GetPointer(export, var, 'MSSU', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = MSSX
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
          deallocate(svar)
       end if
- 
+
       call MAPL_GetPointer(export, var, 'MSSC', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = MSSY
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2725,7 +2725,7 @@
 !
       call MAPL_GetPointer(export, var, 'TUS', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = TUSX
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2734,14 +2734,14 @@
 
       call MAPL_GetPointer(export, var, 'UTUS', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = TUSX
-         allocate(dir(nseal), __STAT__) 
+         allocate(dir(nseal), __STAT__)
          dir  = TUSY
          do jsea = 1,nseal
             if (svar(jsea) == UNDEF) then
                svar(jsea) = MAPL_Undef
-            else 
+            else
                svar(jsea) = svar(jsea) * sin(dir(jsea))
             end if
          end do
@@ -2752,14 +2752,14 @@
 
       call MAPL_GetPointer(export, var, 'VTUS', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = TUSX
-         allocate(dir(nseal), __STAT__) 
+         allocate(dir(nseal), __STAT__)
          dir  = TUSY
          do jsea = 1,nseal
             if (svar(jsea) == UNDEF) then
                svar(jsea) = MAPL_Undef
-            else 
+            else
                svar(jsea) = svar(jsea) * cos(dir(jsea))
             end if
          end do
@@ -2773,7 +2773,7 @@
 !
       call MAPL_GetPointer(export, var, 'UUSS', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = USSX
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2782,7 +2782,7 @@
 
       call MAPL_GetPointer(export, var, 'VUSS', __RC__)
       if (associated(var)) then
-         allocate(svar(nseal), __STAT__) 
+         allocate(svar(nseal), __STAT__)
          svar = USSY
          where(svar == UNDEF) svar = MAPL_Undef
          call sea2grid(svar, var, __RC__)
@@ -2802,7 +2802,7 @@
     contains
 
       subroutine sea2grid(svar, gvar, rc)
-        real, intent(in)  :: svar(:) 
+        real, intent(in)  :: svar(:)
         real, intent(out) :: gvar(:,:)
         integer, optional :: rc
 
@@ -2837,7 +2837,7 @@
                 MAPL_Root, tag, comm, status)
            _VERIFY(status)
         end if
-        
+
         call MAPL_CommsBcast(vm, glob, n=size(glob), ROOT=MAPL_Root, rc=status)
         _VERIFY(status)
         gvar = glob(i1:in,j1:jn)
@@ -2847,7 +2847,7 @@
       end subroutine sea2grid
 
       subroutine gsea2grid(svar, gvar, rc)
-        real, intent(in)  :: svar(:) 
+        real, intent(in)  :: svar(:)
         real, intent(out) :: gvar(:,:)
         integer, optional :: rc
 
@@ -2869,7 +2869,7 @@
 
       subroutine global2local(gvar, svar)
         real, intent(in)  :: gvar(:)
-        real, intent(out) :: svar(:) 
+        real, intent(out) :: svar(:)
 
         integer :: isea, jsea
 
@@ -3651,7 +3651,7 @@
 !
 ! 5.b Store route handle
 !
-      call ESMF_FieldRedistStore( nField, eField, n2eRH, rc=rc ) 
+      call ESMF_FieldRedistStore( nField, eField, n2eRH, rc=rc )
       if (ESMF_LogFoundError(rc, PASSTHRU)) return
 !
 ! 5.c Clean up
@@ -3782,9 +3782,9 @@
 !
 !  2. Method :
 !
-!     Create an ESMF Mesh for import using the unstructured mesh description 
-!     in W3GDATMD. At present, this import mesh is not domain decomposed, 
-!     but instead is defined on PET 0 only. (In future, when the unstructured 
+!     Create an ESMF Mesh for import using the unstructured mesh description
+!     in W3GDATMD. At present, this import mesh is not domain decomposed,
+!     but instead is defined on PET 0 only. (In future, when the unstructured
 !     mesh will run on domain decomposition, we will use that decomposition.)
 !
 !  3. Parameters :
@@ -3897,7 +3897,7 @@
 !/PDLIB!        -------------------------------------------------------------------
 !/PDLIB!        ESMF Definition: The global id's of the nodes resident on this processor
 !/PDLIB!        -------------------------------------------------------------------
-!/PDLIB!        Allocate global node ids, including ghost nodes (npa=np+ng) 
+!/PDLIB!        Allocate global node ids, including ghost nodes (npa=np+ng)
 !/PDLIB         allocate(nodeIds(npa))
 !/PDLIB         do i = 1,npa
 !/PDLIB            nodeIds(i)=iplg(i)
@@ -4064,9 +4064,9 @@
          enddo
 !/PDLIB      else
 !/PDLIB!        -------------------------------------------------------------------
-!/PDLIB!        ESMF Definition: Connectivity table. The number of entries should 
-!/PDLIB!        be equal to the number of nodes in the given topology. The indices 
-!/PDLIB!        should be the local index (1 based) into the array of nodes that 
+!/PDLIB!        ESMF Definition: Connectivity table. The number of entries should
+!/PDLIB!        be equal to the number of nodes in the given topology. The indices
+!/PDLIB!        should be the local index (1 based) into the array of nodes that
 !/PDLIB!        was declared with MeshAddNodes.
 !/PDLIB!        -------------------------------------------------------------------
 !/PDLIB!        > INE is local element array. it stores the local node IDs
@@ -4141,16 +4141,16 @@
 !
 !  2. Method :
 !
-!     Create an ESMF Mesh for export using the unstructured mesh description 
-!     in W3GDATMD. At present, this export mesh is not domain decomposed, 
-!     but instead is defined on PET 0 only. (In future, when the unstructured 
+!     Create an ESMF Mesh for export using the unstructured mesh description
+!     in W3GDATMD. At present, this export mesh is not domain decomposed,
+!     but instead is defined on PET 0 only. (In future, when the unstructured
 !     mesh will run on domain decomposition, we will use that decomposition.)
 !
-!     Since the internal parallel data is currently stored accross grid points 
+!     Since the internal parallel data is currently stored accross grid points
 !     in a "card deck" fashion, we will define an intermediate native grid, as
 !     is done for regular/curvilinear grids, and perform an ESMF regrid to the
-!     export mesh. This code segment is taken from T. J. Campbell, and 
-!     modified to 1D, because the internal data structure for unstructred 
+!     export mesh. This code segment is taken from T. J. Campbell, and
+!     modified to 1D, because the internal data structure for unstructred
 !     meshes is an array with dimensions [NX,NY=1].
 !
 !  3. Parameters :
@@ -4258,7 +4258,7 @@
       natIndexFlag = ESMF_INDEX_DELOCAL
 !
 ! -------------------------------------------------------------------- /
-! 2.  Create ESMF mesh for export 
+! 2.  Create ESMF mesh for export
 !
 ! 2.a Create ESMF export mesh
 !
@@ -4272,7 +4272,7 @@
 !/PDLIB!        -------------------------------------------------------------------
 !/PDLIB!        ESMF Definition: The global id's of the nodes resident on this processor
 !/PDLIB!        -------------------------------------------------------------------
-!/PDLIB!        Allocate global node ids, including ghost nodes (npa=np+ng) 
+!/PDLIB!        Allocate global node ids, including ghost nodes (npa=np+ng)
 !/PDLIB         allocate(nodeIds(npa))
 !/PDLIB         do i = 1,npa
 !/PDLIB            nodeIds(i)=iplg(i)
@@ -4438,9 +4438,9 @@
          enddo
 !/PDLIB      else
 !/PDLIB!        -------------------------------------------------------------------
-!/PDLIB!        ESMF Definition: Connectivity table. The number of entries should 
-!/PDLIB!        be equal to the number of nodes in the given topology. The indices 
-!/PDLIB!        should be the local index (1 based) into the array of nodes that 
+!/PDLIB!        ESMF Definition: Connectivity table. The number of entries should
+!/PDLIB!        be equal to the number of nodes in the given topology. The indices
+!/PDLIB!        should be the local index (1 based) into the array of nodes that
 !/PDLIB!        was declared with MeshAddNodes.
 !/PDLIB!        -------------------------------------------------------------------
 !/PDLIB!        > INE is local element array. it stores the local node IDs
@@ -4565,7 +4565,7 @@
 !
 ! 4.b Store route handle
 !
-      call ESMF_FieldRedistStore( nField, eField, n2eRH, rc=rc ) 
+      call ESMF_FieldRedistStore( nField, eField, n2eRH, rc=rc )
       if (ESMF_LogFoundError(rc, PASSTHRU)) return
 !
 ! 4.c Clean up
@@ -5902,7 +5902,7 @@
             enddo ith_loop
             fack = dden(ik)/cg(ik,isea)
             kd = max(kdmin,min(kdmax,wn(ik,isea)*depth))
-            fkd = fack/sinh(kd)**2 
+            fkd = fack/sinh(kd)**2
             abr = abr + aka*fkd
             ubr = ubr + aka*sig2(ik)*fkd
             ubx = ubx + akx*sig2(ik)*fkd
@@ -6147,7 +6147,7 @@
 #endif
         enddo jsea_loop
 !/PDLIB      else
-!/PDLIB        jsea_loop2: do jsea = 1,np 
+!/PDLIB        jsea_loop2: do jsea = 1,np
 !/PDLIB          isea = iplg(jsea)
 !/PDLIB!          if ( dw(isea).le.zero ) cycle jsea_loop
 !/PDLIB          sxxn(jsea) = sxx(jsea)
@@ -6444,7 +6444,7 @@
       subroutine Record ( gc, import, export, clock, rc )
 ! !ARGUMENTS:
 
-        type(ESMF_GridComp), intent(inout) :: GC     ! Gridded component 
+        type(ESMF_GridComp), intent(inout) :: GC     ! Gridded component
         type(ESMF_State),    intent(inout) :: IMPORT ! Import state
         type(ESMF_State),    intent(inout) :: EXPORT ! Export state
         type(ESMF_Clock),    intent(inout) :: CLOCK  ! The clock
@@ -6480,7 +6480,7 @@
       subroutine Finalize ( gc, import, export, clock, rc )
 ! !ARGUMENTS:
 
-        type(ESMF_GridComp), intent(inout) :: GC     ! Gridded component 
+        type(ESMF_GridComp), intent(inout) :: GC     ! Gridded component
         type(ESMF_State),    intent(inout) :: IMPORT ! Import state
         type(ESMF_State),    intent(inout) :: EXPORT ! Export state
         type(ESMF_Clock),    intent(inout) :: CLOCK  ! The clock
