@@ -1027,7 +1027,7 @@ module WMESMFMD
          UNITS          = '1',                                     &
          DIMS           = MAPL_DimsHorzOnly,                       &
          VLOCATION      = MAPL_VLocationNone,     _RC)
- 
+
       call MAPL_AddExportSpec(GCOMP,                                  &
           SHORT_NAME     = 'TUS',                                  &
           LONG_NAME      = 'stokes transport',                     &
@@ -1062,8 +1062,17 @@ module WMESMFMD
           UNITS          = 'm s-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
+
+      call MAPL_AddExportSpec(GCOMP,                                  &
+          SHORT_NAME     = 'EF',                                   &
+          LONG_NAME      = 'wave frequency spectrum',              &
+          UNITS          = 'm2 s',                                 &
+          DIMS           = MAPL_DimsHorzOnly,                      &
+          UNGRIDDED_DIMS = (/37/),                                 &
+          VLOCATION      = MAPL_VLocationNone,     _RC)
  
- 
+
+
 !
 ! -------------------------------------------------------------------- /
 !     Set profiling timers
@@ -2304,7 +2313,10 @@ module WMESMFMD
       integer, allocatable :: nseaLocal(:)
       integer :: jsea
       real, allocatable :: dir(:)
- 
+
+      integer :: ik, i1f, i2f
+      real, pointer :: var3d(:,:,:) => null()
+
 !
 ! -------------------------------------------------------------------- /
 ! Prep
@@ -2953,6 +2965,26 @@ module WMESMFMD
          call sea2grid(svar, var, __RC__)
          deallocate(svar)
       end if
+
+
+!
+! -------------------------------------------------------------------- /
+! Wave Energy Spectrum
+!
+      call MAPL_GetPointer(export, var3d, 'EF', __RC__)
+      if (associated(var3d)) then
+         allocate(svar(nseal), __STAT__)
+
+         i1f=E3DF(2,1)
+         i2f=E3DF(3,1)
+         frequency_loop: do ik = i1f, i2f
+             svar = EF(:, ik)
+             where(svar == UNDEF) svar = MAPL_Undef
+             call sea2grid(svar, var3d(:,:,ik), __RC__)
+         end do frequency_loop
+         deallocate(svar)
+      end if
+
 !
 ! -------------------------------------------------------------------- /
 ! Post
