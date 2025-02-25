@@ -472,7 +472,7 @@ module WMESMFMD
  
 !  AGCM -> WM
  
-      call MAPL_AddImportSpec(GCOMP,                                  &
+      call MAPL_AddImportSpec(GCOMP,                               &
           SHORT_NAME     = 'U10M',                                 &
           LONG_NAME      = '10-meter_eastward_wind',               &
           UNITS          = 'm s-1',                                &
@@ -480,7 +480,7 @@ module WMESMFMD
           VLOCATION      = MAPL_VLocationNone,                     &
           RESTART        = MAPL_RestartSkip,        _RC)
  
-      call MAPL_AddImportSpec(GCOMP,                                  &
+      call MAPL_AddImportSpec(GCOMP,                               &
           SHORT_NAME     = 'V10M',                                 &
           LONG_NAME      = '10-meter_northward_wind',              &
           UNITS          = 'm s-1',                                &
@@ -488,7 +488,7 @@ module WMESMFMD
           VLOCATION      = MAPL_VLocationNone,                     &
           RESTART        = MAPL_RestartSkip,        _RC)
  
-      call MAPL_AddImportSpec(GCOMP,                                  &
+      call MAPL_AddImportSpec(GCOMP,                               &
           SHORT_NAME     = 'U10N',                                 &
           LONG_NAME      = 'equivalent_neutral_10-meter_eastward_wind', &
           UNITS          = 'm s-1',                                &
@@ -496,7 +496,7 @@ module WMESMFMD
           VLOCATION      = MAPL_VLocationNone,                     &
           RESTART        = MAPL_RestartSkip,        _RC)
  
-      call MAPL_AddImportSpec(GCOMP,                                  &
+      call MAPL_AddImportSpec(GCOMP,                               &
           SHORT_NAME     = 'V10N',                                 &
           LONG_NAME      = 'equivalent_neutral_10-meter_northward_wind', &
           UNITS          = 'm s-1',                                &
@@ -504,7 +504,7 @@ module WMESMFMD
           VLOCATION      = MAPL_VLocationNone,                     &
           RESTART        = MAPL_RestartSkip,        _RC)
  
-      call MAPL_AddImportSpec(GCOMP,                                  &
+      call MAPL_AddImportSpec(GCOMP,                               &
           SHORT_NAME     = 'FRACI',                                &
           LONG_NAME      = 'ice_covered_fraction_of_tile',         &
           UNITS          = '1',                                    &
@@ -514,7 +514,7 @@ module WMESMFMD
  
 !  OGCM -> WM
  
-      call MAPL_AddImportSpec(GCOMP,                                  &
+      call MAPL_AddImportSpec(GCOMP,                               &
           SHORT_NAME     = 'UW',                                   &
           LONG_NAME      = 'zonal_velocity_of_surface_water',      &
           UNITS          = 'm s-1 ',                               &
@@ -523,7 +523,7 @@ module WMESMFMD
           DEFAULT        = 0.0,                                    &
           RESTART        = MAPL_RestartOptional,    _RC)
  
-      call MAPL_AddImportSpec(GCOMP,                                  &
+      call MAPL_AddImportSpec(GCOMP,                               &
           SHORT_NAME     = 'VW',                                   &
           LONG_NAME      = 'meridional_velocity_of_surface_water', &
           UNITS          = 'm s-1 ',                               &
@@ -535,84 +535,84 @@ module WMESMFMD
  
 ! --- EXPORT STATE:
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'U10M',                                 &
           LONG_NAME      = '10-meter_eastward_wind',               &
           UNITS          = 'm s-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,      _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'V10M',                                 &
           LONG_NAME      = '10-meter_northward_wind',              &
           UNITS          = 'm s-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,      _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'U10N',                                 &
           LONG_NAME      = 'equivalent_neutral_10-meter_eastward_wind', &
           UNITS          = 'm s-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,      _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'V10N',                                 &
           LONG_NAME      = 'equivalent_neutral_10-meter_northward_wind', &
           UNITS          = 'm s-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,      _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'W10N',                                 &
           LONG_NAME      = 'equivalent_neutral_10-meter_wind',     &
           UNITS          = 'm s-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,      _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'W10M',                                 &
           LONG_NAME      = '10-meter_wind',                        &
           UNITS          = 'm s-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,      _RC)
  
-!     call MAPL_AddExportSpec(GCOMP,                                  &
+!     call MAPL_AddExportSpec(GCOMP,                               &
 !         SHORT_NAME     = 'RHOS',                                 &
 !         LONG_NAME      = 'air_density_at_surface',               &
 !         UNITS          = 'kg m-3',                               &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
 !         VLOCATION      = MAPL_VLocationNone,      _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'UW',                                   &
           LONG_NAME      = 'zonal_velocity_of_surface_water',      &
           UNITS          = 'm s-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,      _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'VW',                                   &
           LONG_NAME      = 'meridional_velocity_of_surface_water', &
           UNITS          = 'm s-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,      _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'DW',                                   &
           LONG_NAME      = 'bathymetry',                           &
           UNITS          = 'm',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,      _RC)
  
-!     call MAPL_AddExportSpec(GCOMP,                                  &
+!     call MAPL_AddExportSpec(GCOMP,                               &
 !         SHORT_NAME     = 'NUW',                                  &
 !         LONG_NAME      = 'sea_water_kinematic_viscosity',        &
 !         UNITS          = 'm2 s-1',                               &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
 !         VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'FRACI',                                &
           LONG_NAME      = 'ice_covered_fraction_of_tile',         &
           UNITS          = '1',                                    &
@@ -624,56 +624,56 @@ module WMESMFMD
       ! WW3 diagnostics
       !
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'SWH',                                  &
           LONG_NAME      = 'sea_surface_wave_significant_height',  &
           UNITS          = 'm',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'HIG',                                  &
           LONG_NAME      = 'infragravity_wave_height',             &
           UNITS          = 'm',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'HMAXE',                                &
           LONG_NAME      = 'expected_maximum_wave_height_(linear, 1st order)', &
           UNITS          = 'm',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'HCMAXE',                               &
           LONG_NAME      = 'expected_maximum_wave_height_from_crest_(linear, 1st order)', &
           UNITS          = 'm',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'HMAXD',                                &
           LONG_NAME      = 'STD_of_maximum_wave_height_(linear, 1st order)', &
           UNITS          = 'm',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'HCMAXD',                               &
           LONG_NAME      = 'STD_of_maximum_wave_height_from_crest_(linear, 1st order)', &
           UNITS          = 'm',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'MSSU',                                 &
           LONG_NAME      = 'downwave_mean_square_slope',           &
           UNITS          = '1',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'MSSC',                                 &
           LONG_NAME      = 'crosswave_mean_square_slope',          &
           UNITS          = '1',                                    &
@@ -682,203 +682,203 @@ module WMESMFMD
  
  
  
-!     call MAPL_AddExportSpec(GCOMP,                                  &
+!     call MAPL_AddExportSpec(GCOMP,                               &
 !         SHORT_NAME     = 'SWHW',                                 &
 !         LONG_NAME      = 'sea_surface_wind_wave_significant_height', &
 !         UNITS          = 'm',                                    &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
 !         VLOCATION      = MAPL_VLocationNone,     _RC)
  
-!     call MAPL_AddExportSpec(GCOMP,                                  &
+!     call MAPL_AddExportSpec(GCOMP,                               &
 !         SHORT_NAME     = 'SWHS',                                 &
 !         LONG_NAME      = 'sea_surface_swell_significant_height', &
 !         UNITS          = 'm',                                    &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
 !         VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'MWP',                                  &
           LONG_NAME      = 'mean_wave_period',                     &
           UNITS          = 's',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'MWD',                                  &
           LONG_NAME      = 'mean_wave_direction',                  &
           UNITS          = 'rad',                                  &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'MSS',                                  &
           LONG_NAME      = 'mean_squared_slope',                   &
           UNITS          = 'rad',                                  &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'MWL',                                  &
           LONG_NAME      = 'mean_wave_length',                     &
           UNITS          = 'm',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'DWD',                                  &
           LONG_NAME      = 'dominant_wave_direction',              &
           UNITS          = 'rad',                                  &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'DWL',                                  &
           LONG_NAME      = 'dominant_wave_length',                 &
           UNITS          = 'm',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'DWP',                                  &
           LONG_NAME      = 'dominant_wave_period',                 &
           UNITS          = 's',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'FP',                                   &
           LONG_NAME      = 'wave_peak_frequency',                  &
           UNITS          = 's-1',                                  &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'TWS',                                  &
           LONG_NAME      = 'Wind_sea_mean_period_T0M1',            &
           UNITS          = 's',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'DCP0',                                 &
           LONG_NAME      = 'dominant_phase_speed_intrinsic',       &
           UNITS          = 'm s-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'DCG0',                                 &
           LONG_NAME      = 'dominant_group_speed_intrinsic',       &
           UNITS          = 'm s-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'DCP',                                  &
           LONG_NAME      = 'dominant_phase_speed',                 &
           UNITS          = 'm s-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'DCG',                                  &
           LONG_NAME      = 'dominant_group_speed',                 &
           UNITS          = 'm s-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'CGE',                                  &
           LONG_NAME      = 'wave_energy_flux',                     &
           UNITS          = 'W m-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'FAW',                                  &
           LONG_NAME      = 'wind_to_wave_energy_flux',             &
           UNITS          = 'W m-2',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'UTAW',                                 &
           LONG_NAME      = 'eastward_wave_supported_wind_stress',  &
           UNITS          = 'm2 s-2',                               &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'VTAW',                                 &
           LONG_NAME      = 'nortward_wave_supported_wind_stress',  &
           UNITS          = 'm2 s-2',                               &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'UTWA',                                 &
           LONG_NAME      = 'eastward_wave_to_wind_stress',         &
           UNITS          = 'm2 s-2',                               &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'VTWA',                                 &
           LONG_NAME      = 'northward_wave_to_wind_stress',        &
           UNITS          = 'm2 s-2',                               &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'UTWO',                                 &
           LONG_NAME      = 'eastward_wave_to_ocean_stress',        &
           UNITS          = 'm2 s-2',                               &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'VTWO',                                 &
           LONG_NAME      = 'northward_wave_to_ocean_stress',       &
           UNITS          = 'm2 s-2',                               &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'FOC',                                  &
           LONG_NAME      = 'wave_to_ocean_energy_flux',            &
           UNITS          = 'W m-2',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'EDF',                                  &
           LONG_NAME      = 'wave_energy_dissipation_flux',         &
           UNITS          = 'kg s-3',                               &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-!     call MAPL_AddExportSpec(GCOMP,                                  &
+!     call MAPL_AddExportSpec(GCOMP,                               &
 !         SHORT_NAME     = 'EGF',                                  &
 !         LONG_NAME      = 'wave_energy_growth_flux',              &
 !         UNITS          = 'kg s-3',                               &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
 !         VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'USTAR',                                &
           LONG_NAME      = 'friction_velocity',                    &
           UNITS          = 'm s-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'UUST',                                 &
           LONG_NAME      = 'eastward_friction_velocity',           &
           UNITS          = 'm s-1',                                &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'VUST',                                 &
           LONG_NAME      = 'northward_friction_velocity',          &
           UNITS          = 'm s-1',                                &
@@ -886,190 +886,188 @@ module WMESMFMD
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'Z0',                                   &
           LONG_NAME      = 'surface_roughness',                    &
           UNITS          = 'm',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-!     call MAPL_AddExportSpec(GCOMP,                                  &
+!     call MAPL_AddExportSpec(GCOMP,                               &
 !         SHORT_NAME     = 'CD',                                   &
 !         LONG_NAME      = 'drag_coefficient_of_air',              &
 !         UNITS          = '1',                                    &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
 !         VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
+      call MAPL_AddExportSpec(GCOMP,                               &
           SHORT_NAME     = 'CHARNOCK',                             &
           LONG_NAME      = 'wave_model_charnock_coefficient',      &
           UNITS          = '1',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-!     call MAPL_AddExportSpec(GCOMP,                                  &
+!     call MAPL_AddExportSpec(GCOMP,                               &
 !         SHORT_NAME     = 'TAU',                                  &
 !         LONG_NAME      = 'total drag',                           &
 !         UNITS          = 'N m-2',                                &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
 !         VLOCATION      = MAPL_VLocationNone,     _RC)
  
-!     call MAPL_AddExportSpec(GCOMP,                                  &
+!     call MAPL_AddExportSpec(GCOMP,                               &
 !         SHORT_NAME     = 'TAUX',                                 &
 !         LONG_NAME      = 'total drag, x-component',              &
 !         UNITS          = 'N m-2',                                &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
 !         VLOCATION      = MAPL_VLocationNone,     _RC)
  
-!     call MAPL_AddExportSpec(GCOMP,                                  &
+!     call MAPL_AddExportSpec(GCOMP,                               &
 !         SHORT_NAME     = 'TAUY',                                 &
 !         LONG_NAME      = 'total drag, y-component',              &
 !         UNITS          = 'N m-2',                                &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
 !         VLOCATION      = MAPL_VLocationNone,     _RC)
  
-!     call MAPL_AddExportSpec(GCOMP,                                  &
+!     call MAPL_AddExportSpec(GCOMP,                               &
 !         SHORT_NAME     = 'TAU_FORM',                             &
 !         LONG_NAME      = 'form drag',                            &
 !         UNITS          = 'N m-2',                                &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
 !         VLOCATION      = MAPL_VLocationNone,     _RC)
  
-!     call MAPL_AddExportSpec(GCOMP,                                  &
+!     call MAPL_AddExportSpec(GCOMP,                               &
 !         SHORT_NAME     = 'TAUX_FORM',                            &
 !         LONG_NAME      = 'form drag, x-component',               &
 !         UNITS          = 'N m-2',                                &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
 !         VLOCATION      = MAPL_VLocationNone,     _RC)
  
-!     call MAPL_AddExportSpec(GCOMP,                                  &
+!     call MAPL_AddExportSpec(GCOMP,                               &
 !         SHORT_NAME     = 'TAUY_FORM',                            &
 !         LONG_NAME      = 'form drag, y-component',               &
 !         UNITS          = 'N m-2',                                &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
 !         VLOCATION      = MAPL_VLocationNone,     _RC)
  
-!     call MAPL_AddExportSpec(GCOMP,                                  &
+!     call MAPL_AddExportSpec(GCOMP,                               &
 !         SHORT_NAME     = 'TAU_SKIN',                             &
 !         LONG_NAME      = 'skin drag',                            &
 !         UNITS          = 'N m-2',                                &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
 !         VLOCATION      = MAPL_VLocationNone,     _RC)
  
-!     call MAPL_AddExportSpec(GCOMP,                                  &
+!     call MAPL_AddExportSpec(GCOMP,                               &
 !         SHORT_NAME     = 'TAUX_SKIN',                            &
 !         LONG_NAME      = 'skin drag, x-component',               &
 !         UNITS          = 'N m-2',                                &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
 !         VLOCATION      = MAPL_VLocationNone,     _RC)
  
-!     call MAPL_AddExportSpec(GCOMP,                                  &
+!     call MAPL_AddExportSpec(GCOMP,                               &
 !         SHORT_NAME     = 'TAUY_SKIN',                            &
 !         LONG_NAME      = 'skin drag, y-component',               &
 !         UNITS          = 'N m-2',                                &
 !         DIMS           = MAPL_DimsHorzOnly,                      &
 !         VLOCATION      = MAPL_VLocationNone,     _RC)
  
- 
- 
-     call MAPL_AddExportSpec(GCOMP,                                   &
-         SHORT_NAME     = 'T02',                                   &
-         LONG_NAME      = 'mean_wave_period_T02',                  &
-         UNITS          = 's',                                     &
-         DIMS           = MAPL_DimsHorzOnly,                       &
-         VLOCATION      = MAPL_VLocationNone,     _RC)
- 
-     call MAPL_AddExportSpec(GCOMP,                                   &
-         SHORT_NAME     = 'T0M1',                                  &
-         LONG_NAME      = 'mean_wave_period_T0m1',                 &
-         UNITS          = 's',                                     &
-         DIMS           = MAPL_DimsHorzOnly,                       &
-         VLOCATION      = MAPL_VLocationNone,     _RC)
- 
-     call MAPL_AddExportSpec(GCOMP,                                   &
-         SHORT_NAME     = 'T01',                                   &
-         LONG_NAME      = 'mean_wave_period_T01',                  &
-         UNITS          = 's',                                     &
-         DIMS           = MAPL_DimsHorzOnly,                       &
-         VLOCATION      = MAPL_VLocationNone,     _RC)
- 
-     call MAPL_AddExportSpec(GCOMP,                                   &
-         SHORT_NAME     = 'WBT',                                   &
-         LONG_NAME      = 'dominant_wave_breaking_probability',    &
-         UNITS          = '1',                                     &
-         DIMS           = MAPL_DimsHorzOnly,                       &
-         VLOCATION      = MAPL_VLocationNone,     _RC)
- 
-     call MAPL_AddExportSpec(GCOMP,                                   &
-         SHORT_NAME     = 'WCC',                                   &
-         LONG_NAME      = 'whitecap_coverage',                     &
-         UNITS          = '1',                                     &
-         DIMS           = MAPL_DimsHorzOnly,                       &
-         VLOCATION      = MAPL_VLocationNone,     _RC)
- 
-     call MAPL_AddExportSpec(GCOMP,                                   &
-         SHORT_NAME     = 'WCF',                                   &
-         LONG_NAME      = 'whitecap_foam_thickness',               &
-         UNITS          = 'm',                                     &
-         DIMS           = MAPL_DimsHorzOnly,                       &
-         VLOCATION      = MAPL_VLocationNone,     _RC)
- 
-     call MAPL_AddExportSpec(GCOMP,                                   &
-         SHORT_NAME     = 'WCH',                                   &
-         LONG_NAME      = 'significant_breaking_wave_height',      &
-         UNITS          = 'm',                                     &
-         DIMS           = MAPL_DimsHorzOnly,                       &
-         VLOCATION      = MAPL_VLocationNone,     _RC)
- 
-     call MAPL_AddExportSpec(GCOMP,                                   &
-         SHORT_NAME     = 'WCM',                                   &
-         LONG_NAME      = 'whitecap_moment',                       &
-         UNITS          = '1',                                     &
-         DIMS           = MAPL_DimsHorzOnly,                       &
-         VLOCATION      = MAPL_VLocationNone,     _RC)
-
-      call MAPL_AddExportSpec(GCOMP,                                  &
-          SHORT_NAME     = 'TUS',                                  &
-          LONG_NAME      = 'stokes transport',                     &
-          UNITS          = 'm2 s-1',                               &
+      call MAPL_AddExportSpec(GCOMP,                               &
+          SHORT_NAME     = 'T02',                                  &
+          LONG_NAME      = 'mean_wave_period_T02',                 &
+          UNITS          = 's',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
-          SHORT_NAME     = 'UTUS',                                 &
-          LONG_NAME      = 'eastward stokes transport',            &
-          UNITS          = 'm2 s-1',                               &
+      call MAPL_AddExportSpec(GCOMP,                               &
+          SHORT_NAME     = 'T0M1',                                 &
+          LONG_NAME      = 'mean_wave_period_T0m1',                &
+          UNITS          = 's',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
-          SHORT_NAME     = 'VTUS',                                 &
-          LONG_NAME      = 'northward stokes transport',           &
-          UNITS          = 'm2 s-1',                               &
+      call MAPL_AddExportSpec(GCOMP,                               &
+          SHORT_NAME     = 'T01',                                  &
+          LONG_NAME      = 'mean_wave_period_T01',                 &
+          UNITS          = 's',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
-          SHORT_NAME     = 'UUSS',                                 &
-          LONG_NAME      = 'eastward surface stokes drift',        &
-          UNITS          = 'm  s-1',                               &
+      call MAPL_AddExportSpec(GCOMP,                               &
+          SHORT_NAME     = 'WBT',                                  &
+          LONG_NAME      = 'dominant_wave_breaking_probability',   &
+          UNITS          = '1',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
  
-      call MAPL_AddExportSpec(GCOMP,                                  &
-          SHORT_NAME     = 'VUSS',                                 &
-          LONG_NAME      = 'northward surface stokes drift',       &
-          UNITS          = 'm s-1',                                &
+      call MAPL_AddExportSpec(GCOMP,                               &
+          SHORT_NAME     = 'WCC',                                  &
+          LONG_NAME      = 'whitecap_coverage',                    &
+          UNITS          = '1',                                    &
+          DIMS           = MAPL_DimsHorzOnly,                      &
+          VLOCATION      = MAPL_VLocationNone,     _RC)
+ 
+      call MAPL_AddExportSpec(GCOMP,                               &
+          SHORT_NAME     = 'WCF',                                  &
+          LONG_NAME      = 'whitecap_foam_thickness',              &
+          UNITS          = 'm',                                    &
+          DIMS           = MAPL_DimsHorzOnly,                      &
+          VLOCATION      = MAPL_VLocationNone,     _RC)
+ 
+      call MAPL_AddExportSpec(GCOMP,                               &
+          SHORT_NAME     = 'WCH',                                  &
+          LONG_NAME      = 'significant_breaking_wave_height',     &
+          UNITS          = 'm',                                    &
+          DIMS           = MAPL_DimsHorzOnly,                      &
+          VLOCATION      = MAPL_VLocationNone,     _RC)
+ 
+      call MAPL_AddExportSpec(GCOMP,                               &
+          SHORT_NAME     = 'WCM',                                  &
+          LONG_NAME      = 'whitecap_moment',                      &
+          UNITS          = '1',                                    &
           DIMS           = MAPL_DimsHorzOnly,                      &
           VLOCATION      = MAPL_VLocationNone,     _RC)
 
-      call MAPL_AddExportSpec(GCOMP,                                  &
-          SHORT_NAME     = 'EF',                                   &
-          LONG_NAME      = 'wave frequency spectrum',              &
-          UNITS          = 'm2 s',                                 &
-          DIMS           = MAPL_DimsHorzOnly,                      &
-          UNGRIDDED_DIMS = (/37/),                                 &
-          VLOCATION      = MAPL_VLocationNone,     _RC)
+      call MAPL_AddExportSpec(GCOMP,                               &
+          SHORT_NAME    = 'TUS',                                   &
+          LONG_NAME     = 'stokes transport',                      &
+          UNITS         = 'm2 s-1',                                &
+          DIMS          = MAPL_DimsHorzOnly,                       &
+          VLOCATION     = MAPL_VLocationNone,     _RC)
+ 
+      call MAPL_AddExportSpec(GCOMP,                               &
+          SHORT_NAME    = 'UTUS',                                  &
+          LONG_NAME     = 'eastward stokes transport',             &
+          UNITS         = 'm2 s-1',                                &
+          DIMS          = MAPL_DimsHorzOnly,                       &
+          VLOCATION     = MAPL_VLocationNone,     _RC)
+ 
+      call MAPL_AddExportSpec(GCOMP,                               &
+          SHORT_NAME    = 'VTUS',                                  &
+          LONG_NAME     = 'northward stokes transport',            &
+          UNITS         = 'm2 s-1',                                &
+          DIMS          = MAPL_DimsHorzOnly,                       &
+          VLOCATION     = MAPL_VLocationNone,     _RC)
+ 
+      call MAPL_AddExportSpec(GCOMP,                               &
+          SHORT_NAME    = 'UUSS',                                  &
+          LONG_NAME     = 'eastward surface stokes drift',         &
+          UNITS         = 'm  s-1',                                &
+          DIMS          = MAPL_DimsHorzOnly,                       &
+          VLOCATION     = MAPL_VLocationNone,     _RC)
+ 
+      call MAPL_AddExportSpec(GCOMP,                               &
+          SHORT_NAME    = 'VUSS',                                  &
+          LONG_NAME     = 'northward surface stokes drift',        &
+          UNITS         = 'm s-1',                                 &
+          DIMS          = MAPL_DimsHorzOnly,                       &
+          VLOCATION     = MAPL_VLocationNone,     _RC)
+
+      call MAPL_AddExportSpec(GCOMP,                               &
+          SHORT_NAME    = 'EF',                                    &
+          LONG_NAME     = 'wave frequency spectrum',               &
+          UNITS         = 'm2 s',                                  &
+          DIMS          = MAPL_DimsHorzOnly,                       &
+          UNGRIDDED_DIMS= (/37/),                                  &
+          VLOCATION     = MAPL_VLocationNone,     _RC)
  
 
 
