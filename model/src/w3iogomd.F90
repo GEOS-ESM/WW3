@@ -2533,7 +2533,7 @@ CONTAINS
     !/
     USE W3ODATMD, ONLY: NOGRP, NGRPP, IDOUT, UNDEF, NDST, NDSE,     &
          FLOGRD, IPASS => IPASS1, WRITE => WRITE1,   &
-         FNMPRE, NOSWLL, NOEXTR
+         FNMPRE, FNMGRD, NOSWLL, NOEXTR
     !/
     USE W3SERVMD, ONLY: EXTCDE
     USE W3ODATMD, only : IAPROC
@@ -2576,6 +2576,11 @@ CONTAINS
 #endif
     CHARACTER(LEN=30)       :: IDTST, TNAME
     CHARACTER(LEN=10)       :: VERTST
+
+    ! DEFINED A LOCAL FNMPRE TO AVOID CHANGE THE GLOBAL VALUE
+    CHARACTER(LEN=256)       :: FNMPRE_LOCAL
+    !
+    INTEGER                 :: NDSOGLOG
     !/
     !/ ------------------------------------------------------------------- /
     !/
@@ -2624,22 +2629,28 @@ CONTAINS
     ! open file ---------------------------------------------------------- *
     ! ( IPASS = 1 )
     !
+    IF (LEN_TRIM(FNMGRD) .EQ. 0) THEN
+      FNMPRE_LOCAL = FNMPRE
+    ELSE
+      FNMPRE_LOCAL = FNMGRD
+    END IF
+
     IF ( IPASS.EQ.1 .AND. OFILES(1) .EQ. 0) THEN
       I      = LEN_TRIM(FILEXT)
-      J      = LEN_TRIM(FNMPRE)
+      J      = LEN_TRIM(FNMPRE_LOCAL)
       !
 #ifdef W3_T
-      WRITE (NDST,9001) FNMPRE(:J)//'out_grd.'//FILEXT(:I)
+      WRITE (NDST,9001) FNMPRE_LOCAL(:J)//'out_grd.'//FILEXT(:I)
 #endif
       IF ( WRITE ) THEN
-        OPEN (NDSOG,FILE=FNMPRE(:J)//'out_grd.'//FILEXT(:I),    &
+        OPEN (NDSOG,FILE=FNMPRE_LOCAL(:J)//'out_grd.'//FILEXT(:I),    &
              form ='UNFORMATTED', convert=file_endian,ERR=800,IOSTAT=IERR)
 #ifdef W3_ASCII
-        OPEN (NDSOA,FILE=FNMPRE(:J)//'out_grd.'//FILEXT(:I)//'.txt',    &
+        OPEN (NDSOA,FILE=FNMPRE_LOCAL(:J)//'out_grd.'//FILEXT(:I)//'.txt',    &
              form ='FORMATTED',ERR=800,IOSTAT=IERR)
 #endif
       ELSE
-        OPEN (NDSOG,FILE=FNMPRE(:J)//'out_grd.'//FILEXT(:I),    &
+        OPEN (NDSOG,FILE=FNMPRE_LOCAL(:J)//'out_grd.'//FILEXT(:I),    &
              form='UNFORMATTED', convert=file_endian,ERR=800,IOSTAT=IERR,STATUS='OLD')
       END IF
       !
@@ -2709,22 +2720,22 @@ CONTAINS
     !
     IF ( IPASS.GE.1 .AND. OFILES(1) .EQ. 1) THEN
       I      = LEN_TRIM(FILEXT)
-      J      = LEN_TRIM(FNMPRE)
+      J      = LEN_TRIM(FNMPRE_LOCAL)
       !
       ! Create TIMETAG for file name using YYYYMMDD.HHMMS prefix
       WRITE(TIMETAG,"(i8.8,'.'i6.6)")TIME(1),TIME(2)
 #ifdef W3_T
-      WRITE (NDST,9001) FNMPRE(:J)//TIMETAG//'.out_grd.'//FILEXT(:I)
+      WRITE (NDST,9001) FNMPRE_LOCAL(:J)//TIMETAG//'.out_grd.'//FILEXT(:I)
 #endif
       IF ( WRITE ) THEN
-        OPEN (NDSOG,FILE=FNMPRE(:J)//TIMETAG//'.out_grd.'  &
+        OPEN (NDSOG,FILE=FNMPRE_LOCAL(:J)//TIMETAG//'.out_grd.'  &
              //FILEXT(:I),form='UNFORMATTED', convert=file_endian,ERR=800,IOSTAT=IERR)
 #ifdef W3_ASCII
-        OPEN (NDSOA,FILE=FNMPRE(:J)//TIMETAG//'.out_grd.'  &
+        OPEN (NDSOA,FILE=FNMPRE_LOCAL(:J)//TIMETAG//'.out_grd.'  &
              //FILEXT(:I)//'.txt',form='FORMATTED',ERR=800,IOSTAT=IERR)
 #endif
       ELSE
-        OPEN (NDSOG,FILE=FNMPRE(:J)//'out_grd.'//FILEXT(:I),    &
+        OPEN (NDSOG,FILE=FNMPRE_LOCAL(:J)//'out_grd.'//FILEXT(:I),    &
              form='UNFORMATTED', convert=file_endian,ERR=800,IOSTAT=IERR,STATUS='OLD')
       END IF
       !
@@ -4056,6 +4067,17 @@ CONTAINS
     CALL W3SETA ( IGRD, NDSE, NDST )
 #endif
     !
+    ! ADD INDICATOR LOG AFTER THE GRIDDED OUTPUT HAS BEEN FULLY WRITTEN
+    IF ( WRITE .AND. (OFILES(1).EQ.1) ) THEN
+      NDSOGLOG = NDSOG
+      OPEN (NDSOGLOG,FILE=FNMPRE_LOCAL(:J)//'log.'//TIMETAG//'.out_grd.'//FILEXT(:I)//'.txt', &
+           form ='FORMATTED',ERR=800,IOSTAT=IERR)
+      WRITE (NDSOGLOG,*) 'The '//TRIM(TIMETAG)//'.out_grd.'//TRIM(FILEXT(:I))// &
+           ' file has been successfully written!'
+      CALL FLUSH (NDSOGLOG)
+      CLOSE (NDSOGLOG)
+    ENDIF
+
     RETURN
     !
     ! Escape locations read errors
