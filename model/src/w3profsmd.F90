@@ -2087,9 +2087,9 @@ subroutine bcgstab(n, rhs, sol, ipar, fpar, w)
   !-----------------------------------------------------------------------
   !     external routines used
   !
-  real*8 ddot
+  real*8 ww3_ddot
   logical stopbis, brkdn
-  external ddot, stopbis, brkdn
+  external ww3_ddot, stopbis, brkdn
   !
   real*8 one
   parameter(one=1.0D0)
@@ -2170,12 +2170,12 @@ subroutine bcgstab(n, rhs, sol, ipar, fpar, w)
     enddo
   endif
   !
-  fpar(7) = ddot(n,w,w)
+  fpar(7) = ww3_ddot(n,w,w)
   fpar(11) = fpar(11) + 2 * n
   fpar(5) = sqrt(fpar(7))
   fpar(3) = fpar(5)
   if (abs(ipar(3)).eq.2) then
-    fpar(4) = fpar(1) * sqrt(ddot(n,rhs,rhs)) + fpar(2)
+    fpar(4) = fpar(1) * sqrt(ww3_ddot(n,rhs,rhs)) + fpar(2)
     fpar(11) = fpar(11) + 2 * n
   else if (ipar(3).ne.999) then
     fpar(4) = fpar(1) * fpar(3) + fpar(2)
@@ -2224,7 +2224,7 @@ subroutine bcgstab(n, rhs, sol, ipar, fpar, w)
 60 ipar(7) = ipar(7) + 1
   !
   !     step (2)
-  alpha = ddot(n,w(1,1),w(1,5))
+  alpha = ww3_ddot(n,w(1,1),w(1,5))
   fpar(11) = fpar(11) + 2 * n
   if (brkdn(alpha, ipar)) goto 900
   alpha = fpar(7) / alpha
@@ -2273,10 +2273,10 @@ subroutine bcgstab(n, rhs, sol, ipar, fpar, w)
 90 ipar(7) = ipar(7) + 1
   !
   !     step (5)
-  omega = ddot(n,w(1,4),w(1,4))
+  omega = ww3_ddot(n,w(1,4),w(1,4))
   fpar(11) = fpar(11) + n + n
   if (brkdn(omega,ipar)) goto 900
-  omega = ddot(n,w(1,4),w(1,3)) / omega
+  omega = ww3_ddot(n,w(1,4),w(1,3)) / omega
   fpar(11) = fpar(11) + n + n
   if (brkdn(omega,ipar)) goto 900
   fpar(9) = omega
@@ -2304,7 +2304,7 @@ subroutine bcgstab(n, rhs, sol, ipar, fpar, w)
   !     step (8): computing new p and rho
   !
   rho = fpar(7)
-  fpar(7) = ddot(n,w(1,2),w(1,1))
+  fpar(7) = ww3_ddot(n,w(1,2),w(1,1))
   omega = fpar(9)
   beta = fpar(7) * fpar(8) / (fpar(9) * rho)
   do i = 1, n
@@ -2464,8 +2464,8 @@ end subroutine givens
 logical function stopbis(n,ipar,mvpi,fpar,r,delx,sx)
   implicit none
   integer n,mvpi,ipar(16)
-  real*8 fpar(16), r(n), delx(n), sx, ddot
-  external ddot
+  real*8 fpar(16), r(n), delx(n), sx, ww3_ddot
+  external ww3_ddot
   !-----------------------------------------------------------------------
   !     function for determining the stopping criteria. return value of
   !     true if the stopbis criteria is satisfied.
@@ -2483,13 +2483,13 @@ logical function stopbis(n,ipar,mvpi,fpar,r,delx,sx)
   !
   !     computes errors
   !
-  fpar(5) = sqrt(ddot(n,r,r))
+  fpar(5) = sqrt(ww3_ddot(n,r,r))
   fpar(11) = fpar(11) + 2 * n
   if (ipar(3).lt.0) then
     !
     !     compute the change in the solution vector
     !
-    fpar(6) = sx * sqrt(ddot(n,delx,delx))
+    fpar(6) = sx * sqrt(ww3_ddot(n,delx,delx))
     fpar(11) = fpar(11) + 2 * n
     if (ipar(7).lt.mvpi+mvpi+1) then
       !
@@ -2696,13 +2696,13 @@ subroutine mgsro(full,lda,n,m,ind,ops,vec,hh,ierr)
   !     External routines used: real*8 ddot
   !-----------------------------------------------------------------------
   integer i,k
-  real*8  nrm0, nrm1, fct, thr, ddot, zero, one, reorth
+  real*8  nrm0, nrm1, fct, thr, ww3_ddot, zero, one, reorth
   parameter (zero=0.0D0, one=1.0D0, reorth=0.98D0)
-  external ddot
+  external ww3_ddot
   !
   !     compute the norm of the input vector
   !
-  nrm0 = ddot(n,vec(1,ind),vec(1,ind))
+  nrm0 = ww3_ddot(n,vec(1,ind),vec(1,ind))
   ops = ops + n + n
   thr = nrm0 * reorth
   if (nrm0.le.zero) then
@@ -2719,14 +2719,14 @@ subroutine mgsro(full,lda,n,m,ind,ops,vec,hh,ierr)
   !
   if (full) then
     do i = ind+1, m
-      fct = ddot(n,vec(1,ind),vec(1,i))
+      fct = ww3_ddot(n,vec(1,ind),vec(1,i))
       hh(i) = fct
       do k = 1, n
         vec(k,ind) = vec(k,ind) - fct * vec(k,i)
       end do
       ops = ops + 4 * n + 2
       if (fct*fct.gt.thr) then
-        fct = ddot(n,vec(1,ind),vec(1,i))
+        fct = ww3_ddot(n,vec(1,ind),vec(1,i))
         hh(i) = hh(i) + fct
         do k = 1, n
           vec(k,ind) = vec(k,ind) - fct * vec(k,i)
@@ -2740,14 +2740,14 @@ subroutine mgsro(full,lda,n,m,ind,ops,vec,hh,ierr)
   endif
   !
   do i = 1, ind-1
-    fct = ddot(n,vec(1,ind),vec(1,i))
+    fct = ww3_ddot(n,vec(1,ind),vec(1,i))
     hh(i) = fct
     do k = 1, n
       vec(k,ind) = vec(k,ind) - fct * vec(k,i)
     end do
     ops = ops + 4 * n + 2
     if (fct*fct.gt.thr) then
-      fct = ddot(n,vec(1,ind),vec(1,i))
+      fct = ww3_ddot(n,vec(1,ind),vec(1,i))
       hh(i) = hh(i) + fct
       do k = 1, n
         vec(k,ind) = vec(k,ind) - fct * vec(k,i)
@@ -2761,7 +2761,7 @@ subroutine mgsro(full,lda,n,m,ind,ops,vec,hh,ierr)
   !
   !     test the resulting vector
   !
-  nrm1 = sqrt(ddot(n,vec(1,ind),vec(1,ind)))
+  nrm1 = sqrt(ww3_ddot(n,vec(1,ind),vec(1,ind)))
   ops = ops + n + n
   hh(ind) = nrm1    ! statement label 75
   if (nrm1.le.zero) then
@@ -4251,7 +4251,7 @@ subroutine pgmres(n, im, rhs, sol, eps, maxits, aspar, nnz, ia, ja, alu, jlu, ju
   real*8  :: rhs(*), sol(*)
 
   real*8  :: eps
-  real*8  :: eps1, epsmac, gam, t, ddot, dnrm2, ro, tl
+  real*8  :: eps1, epsmac, gam, t, ww3_ddot, ww3_dnrm2, ro, tl
 
   integer :: i,i1,j,jj,k,k1,iii,ii,ju0
   integer :: its,jrow,jcol,jf,jm,js,jw
@@ -4334,7 +4334,7 @@ subroutine pgmres(n, im, rhs, sol, eps, maxits, aspar, nnz, ia, ja, alu, jlu, ju
     vv(j,1) = rhs(j) - vv(j,1)
   end do
 20 if (lblas) then
-    ro = dnrm2(n, vv)
+    ro = ww3_dnrm2(n, vv)
   else
     ro = sqrt(sum(vv(:,1)*vv(:,1)))
   end if
@@ -4377,10 +4377,10 @@ subroutine pgmres(n, im, rhs, sol, eps, maxits, aspar, nnz, ia, ja, alu, jlu, ju
   !      modified gram - schmidt...
   if (lblas) then
     do j=1, i
-      t = ddot(n, vv(1,j),vv(1,i1))
+      t = ww3_ddot(n, vv(1,j),vv(1,i1))
       hh(j,i) = t
-      call daxpy(n, -t, vv(1,j), 1, vv(1,i1), 1)
-      t = dnrm2(n, vv(1,i1))
+      call ww3_daxpy(n, -t, vv(1,j), 1, vv(1,i1), 1)
+      t = ww3_dnrm2(n, vv(1,i1))
     end do
   else
     do j=1, i
@@ -4472,7 +4472,7 @@ subroutine pgmres(n, im, rhs, sol, eps, maxits, aspar, nnz, ia, ja, alu, jlu, ju
     t = rs(j)
     if (j .eq. 1)  t = t-1.0d0
     if (lblas) then
-      call daxpy (n, t, vv(1,j), 1,  vv, 1)
+      call ww3_daxpy (n, t, vv(1,j), 1,  vv, 1)
     else
       vv(:,j) = vv(:,j) + t * vv(:,1)
     end if
@@ -4495,7 +4495,7 @@ end subroutine pgmres
 !-----------------------------------------------------------------------
 !     subroutine from blas1.f90
 !-----------------------------------------------------------------------
-DOUBLE PRECISION FUNCTION DNRM2(N,X)
+DOUBLE PRECISION FUNCTION ww3_dnrm2(N,X)
   !     .. Scalar Arguments ..
   INTEGER N
   !     ..
@@ -4556,15 +4556,15 @@ DOUBLE PRECISION FUNCTION DNRM2(N,X)
     NORM = SCALE*SQRT(SSQ)
   END IF
   !
-  DNRM2 = NORM
+  ww3_dnrm2 = NORM
   RETURN
   !
   !     End of DNRM2.
   !
-END function dnrm2
+END function ww3_dnrm2
 
 !-----------------------------------------------------------------------
-SUBROUTINE DLASSQ( N, X, SCALE, SUMSQ )
+SUBROUTINE ww3_dlassq( N, X, SCALE, SUMSQ )
   !
   ! -- LAPACK auxiliary routine (version 3.1) --
   ! Univ. of Tennessee, Univ. of California Berkeley and NAG Ltd..
@@ -4606,10 +4606,10 @@ SUBROUTINE DLASSQ( N, X, SCALE, SUMSQ )
     END DO
   END IF
   RETURN
-END SUBROUTINE DLASSQ
+END SUBROUTINE ww3_dlassq
 
 !-------------------------------------------------------------------------
-double precision function ddot(n,dx,dy)
+double precision function ww3_ddot(n,dx,dy)
   !
   !     forms the dot product of two vectors.
   !     uses unrolled loops for increments equal to one.
@@ -4618,7 +4618,7 @@ double precision function ddot(n,dx,dy)
   double precision dx(*),dy(*),dtemp
   integer i,m,mp1,n
   !
-  ddot = 0.0d0
+  ww3_ddot = 0.0d0
   dtemp = 0.0d0
   if(n.le.0)return
 
@@ -4633,11 +4633,11 @@ double precision function ddot(n,dx,dy)
     dtemp = dtemp + dx(i)*dy(i) + dx(i + 1)*dy(i + 1) + &
          &   dx(i + 2)*dy(i + 2) + dx(i + 3)*dy(i + 3) + dx(i + 4)*dy(i + 4)
   end do
-60 ddot = dtemp
+60 ww3_ddot = dtemp
   return
-end function ddot
+end function ww3_ddot
 !----------------------------------------------------------------------
-subroutine daxpy(n,da,dx,incx,dy,incy)
+subroutine ww3_daxpy(n,da,dx,incx,dy,incy)
   !
   !     constant times a vector plus a vector.
   !     uses unrolled loops for increments equal to one.
@@ -4683,4 +4683,4 @@ subroutine daxpy(n,da,dx,incx,dy,incy)
     dy(i + 3) = dy(i + 3) + da*dx(i + 3)
   end do
   return
-end subroutine daxpy
+end subroutine ww3_daxpy
