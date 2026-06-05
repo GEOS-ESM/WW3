@@ -6806,7 +6806,7 @@ module WMESMFMD
  
         Iam = 'Record'
         call ESMF_GridCompGet(GC, NAME=COMP_NAME, rc=status)
-        VERIFY_(status)
+        _VERIFY(status)
  
         Iam = trim(COMP_NAME) // Iam
  
@@ -6819,7 +6819,7 @@ module WMESMFMD
         ! this is needed to write IMPORT checkpoint and proper timers reporting
 	call MAPL_GenericRecord( gc, import, export, clock, __RC__ )
  
-        RETURN_(ESMF_SUCCESS)
+        _RETURN(ESMF_SUCCESS)
       end subroutine Record
  
       subroutine Finalize ( gc, import, export, clock, rc )
@@ -6842,7 +6842,7 @@ module WMESMFMD
  
         Iam = 'Finalize'
         call ESMF_GridCompGet(GC, NAME=COMP_NAME, rc=status)
-        VERIFY_(status)
+        _VERIFY(status)
  
         Iam = trim(COMP_NAME) // Iam
  
@@ -6859,7 +6859,7 @@ module WMESMFMD
         ! this is needed to write IMPORT checkpoint and proper timers reporting
 	call MAPL_GenericFinalize( gc, import, export, clock, __RC__ )
  
-        RETURN_(ESMF_SUCCESS)
+        _RETURN(ESMF_SUCCESS)
       end subroutine Finalize
  
 !/
